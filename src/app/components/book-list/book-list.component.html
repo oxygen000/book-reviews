@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Book Reviews</h1>
+    <div class="search-section">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search for a book..." />
+      <button class="search-button" (click)="fetchBooks()">Search</button>
+      <button class="refresh-button" (click)="fetchRandomBooks()">Refresh</button>
+    </div>
+  
+    <!-- Book List -->
+    <div class="book-list">
+      <div *ngIf="books.length === 0" class="no-books">No books found. Try searching for something else!</div>
+      <div class="book-item" *ngFor="let book of books">
+        <div class="book-image">
+          <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Book Cover" />
+        </div>
+        <div class="book-info">
+          <h2>{{ book.volumeInfo.title }}</h2>
+          <p>{{ book.volumeInfo.authors?.join(', ') }}</p>
+          <p *ngIf="book.volumeInfo.publishedDate">Published on: {{ book.volumeInfo.publishedDate }}</p>
+          <p *ngIf="book.volumeInfo.description" class="book-description">{{ book.volumeInfo.description | slice:0:150 }}...</p>
+          <div class="rating">
+            <span *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{'filled': star <= (book.volumeInfo.averageRating || 0)}">&#9733;</span>
+            <span *ngIf="book.volumeInfo.averageRating">{{ book.volumeInfo.averageRating }}</span>
+          </div>
+          <button class="details-button" (click)="viewDetails(book.id)">Details</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Pagination controls -->
+    <div class="pagination">
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="pagination-button" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <button class="pagination-button" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+  

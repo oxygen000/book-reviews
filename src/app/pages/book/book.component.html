@@ -1,0 +1,9 @@
+<div class="details-container" *ngIf="book">
+    <h1 class="book-title">{{ book.volumeInfo.title }}</h1>
+    <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="Book Cover" class="book-image" />
+    <h3 class="book-authors">Author(s): {{ book.volumeInfo.authors?.join(', ') }}</h3>
+    <p class="book-published-date"><strong>Published Date:</strong> {{ book.volumeInfo.publishedDate }}</p>
+    <p class="book-description"><strong>Description:</strong> {{ book.volumeInfo.description }}</p>
+    <a [href]="book.volumeInfo.previewLink" target="_blank" class="preview-button">Preview Book</a>
+  </div>
+  

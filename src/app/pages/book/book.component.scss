@@ -1,0 +1,107 @@
+.details-container {
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+  
+    .book-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-align: center;
+    }
+  
+    .book-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .book-authors {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+  
+    .book-published-date {
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+  
+    .book-description {
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      max-height: 200px;
+      overflow: hidden;
+    }
+  
+    .preview-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .details-container {
+      padding: 15px;
+    }
+  
+    .book-title {
+      font-size: 24px;
+    }
+  
+    .book-authors,
+    .book-published-date,
+    .book-description {
+      font-size: 14px;
+    }
+  
+    .preview-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .details-container {
+      padding: 10px;
+    }
+  
+    .book-title {
+      font-size: 22px;
+    }
+  
+    .book-authors,
+    .book-published-date,
+    .book-description {
+      font-size: 12px;
+    }
+  
+    .preview-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }
+  
