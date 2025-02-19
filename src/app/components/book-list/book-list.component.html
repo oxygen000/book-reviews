@@ -6,7 +6,6 @@
       <button class="refresh-button" (click)="fetchRandomBooks()">Refresh</button>
     </div>
   
-    <!-- Book List -->
     <div class="book-list">
       <div *ngIf="books.length === 0" class="no-books">No books found. Try searching for something else!</div>
       <div class="book-item" *ngFor="let book of books">
@@ -27,7 +26,6 @@
       </div>
     </div>
   
-    <!-- Pagination controls -->
     <div class="pagination">
       <span>Page {{ currentPage }} of {{ totalPages }}</span>
       <button class="pagination-button" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
